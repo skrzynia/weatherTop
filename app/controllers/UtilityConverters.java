@@ -231,12 +231,14 @@ public class UtilityConverters {
     public static String tendTemperature(List<Reading> list)
     {
         boolean tempArr[] = new boolean[2];
-        double temp = list.get(list.size() - 3).temperature;
+
         int counter = 0;
         if (list.size() >= 3)
         {
+            double temp = list.get(list.size() - 3).temperature;
             for(int i = list.size() - 2; i < list.size() ; i++)
             {
+
 
                 if (list.get(i).temperature > temp)
                 {
@@ -277,12 +279,14 @@ public class UtilityConverters {
     public static String tendWind(List<Reading> list)
     {
         boolean tempArr[] = new boolean[2];
-        double temp = list.get(list.size() - 3).temperature;
+
         int counter = 0;
         if (list.size() >= 3)
         {
+            double temp = list.get(list.size() - 3).windSpeed;
             for(int i = list.size() - 2; i < list.size() ; i++)
             {
+
 
                 if (list.get(i).windSpeed > temp)
                 {
@@ -322,12 +326,14 @@ public class UtilityConverters {
     public static String tendPressure(List<Reading> list)
     {
         boolean tempArr[] = new boolean[2];
-        double temp = list.get(list.size() - 3).temperature;
+
         int counter = 0;
         if (list.size() >= 3)
         {
+            double temp = list.get(list.size() - 3).pressure;
             for(int i = list.size() - 2; i < list.size() ; i++)
             {
+
 
                 if (list.get(i).pressure > temp)
                 {
