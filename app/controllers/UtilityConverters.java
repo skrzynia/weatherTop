@@ -231,23 +231,30 @@ public class UtilityConverters {
     public static String tendTemperature(List<Reading> list)
     {
         boolean tempArr[] = new boolean[2];
-        double temp = list.get(0).temperature;
+        double temp = list.get(list.size() - 3).temperature;
+        int counter = 0;
         if (list.size() >= 3)
         {
-            for(int i = 1; i < list.size() - 1; i++)
+            for(int i = list.size() - 2; i < list.size() ; i++)
             {
+
                 if (list.get(i).temperature > temp)
                 {
-                    tempArr[i-1] = true;
+                    tempArr[counter] = true;
                     temp = list.get(i).temperature;
+                    counter++;
+
                 }
-                else if (list.get(i).temperature < temp)
+                else if (list.get(i).temperature <= temp)
                 {
-                    tempArr[i-1] = false;
+                    tempArr[counter] = false;
                     temp = list.get(i).temperature;
+                    counter++;
                 }
+
             }
-            System.out.println(tempArr[0] + " " + tempArr[1]);
+
+            counter = 0;
 
             if (tempArr[0] && tempArr[1])
             {
@@ -261,31 +268,39 @@ public class UtilityConverters {
                 return "big blue arrows alternate horizontal icon";
 
             }
-            }
+        }
 
-        return tempArr[0] + " " + tempArr[1];
+        return "WrongDAta";
     }
 
 
     public static String tendWind(List<Reading> list)
     {
         boolean tempArr[] = new boolean[2];
-        double temp = list.get(0).windSpeed;
+        double temp = list.get(list.size() - 3).temperature;
+        int counter = 0;
         if (list.size() >= 3)
         {
-            for(int i = 1; i < list.size() - 1; i++)
+            for(int i = list.size() - 2; i < list.size() ; i++)
             {
+
                 if (list.get(i).windSpeed > temp)
                 {
-                    tempArr[i-1] = true;
+                    tempArr[counter] = true;
                     temp = list.get(i).windSpeed;
+                    counter++;
+
                 }
-                else if (list.get(i).windSpeed < temp)
+                else if (list.get(i).windSpeed <= temp)
                 {
-                    tempArr[i-1] = false;
+                    tempArr[counter] = false;
                     temp = list.get(i).windSpeed;
+                    counter++;
                 }
+
             }
+
+            counter = 0;
 
             if (tempArr[0] && tempArr[1])
             {
@@ -307,22 +322,30 @@ public class UtilityConverters {
     public static String tendPressure(List<Reading> list)
     {
         boolean tempArr[] = new boolean[2];
-        double temp = list.get(0).pressure;
+        double temp = list.get(list.size() - 3).temperature;
+        int counter = 0;
         if (list.size() >= 3)
         {
-            for(int i = 1; i < list.size() - 1; i++)
+            for(int i = list.size() - 2; i < list.size() ; i++)
             {
+
                 if (list.get(i).pressure > temp)
                 {
-                    tempArr[i-1] = true;
+                    tempArr[counter] = true;
                     temp = list.get(i).pressure;
+                    counter++;
+
                 }
-                else if (list.get(i).pressure < temp)
+                else if (list.get(i).pressure <= temp)
                 {
-                    tempArr[i-1] = false;
+                    tempArr[counter] = false;
                     temp = list.get(i).pressure;
+                    counter++;
                 }
+
             }
+
+            counter = 0;
 
             if (tempArr[0] && tempArr[1])
             {
@@ -336,6 +359,7 @@ public class UtilityConverters {
                 return "big orange arrows alternate horizontal icon";
 
             }
+
         }
 
         return "WrongData";
