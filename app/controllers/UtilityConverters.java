@@ -241,7 +241,7 @@ public class UtilityConverters {
                     tempArr[i-1] = true;
                     temp = list.get(i).temperature;
                 }
-                else if (list.get(i).temperature <= temp)
+                else if (list.get(i).temperature < temp)
                 {
                     tempArr[i-1] = false;
                     temp = list.get(i).temperature;
@@ -280,7 +280,7 @@ public class UtilityConverters {
                     tempArr[i-1] = true;
                     temp = list.get(i).windSpeed;
                 }
-                else if (list.get(i).windSpeed <= temp)
+                else if (list.get(i).windSpeed < temp)
                 {
                     tempArr[i-1] = false;
                     temp = list.get(i).windSpeed;
@@ -317,7 +317,7 @@ public class UtilityConverters {
                     tempArr[i-1] = true;
                     temp = list.get(i).pressure;
                 }
-                else if (list.get(i).pressure <= temp)
+                else if (list.get(i).pressure < temp)
                 {
                     tempArr[i-1] = false;
                     temp = list.get(i).pressure;
