@@ -1,0 +1,152 @@
+#{extends 'main.html' /}
+#{set title:'Dashboard' /}
+
+#{logged id:"dashboard"/}
+
+<div class="ui five cards">
+    <div class="ui raised link card">
+        <div class="content">
+            <div style="display: inline" class="header">${station.name}</div>
+            <i style="display: inline" class=" map pin purple big center icon"></i>
+            <div class="meta">
+                <span class="category">Lat: ${station.latitude}</span>
+                <span class="category">Lon: ${station.longitude}</span>
+            </div>
+            <div class="description">
+
+            </div>
+            <div class="extra content">
+                <div class="right floated author">
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="ui raised link card">
+        <div class="content">
+            <div style="display: inline" class="header">Weather</div>
+            <i class="sun outline red big center icon"></i>
+            <div class="meta">
+                <span class="category">${weather}</span>
+            </div>
+            <div class="description">
+
+            </div>
+        </div>
+        <div class="extra content">
+            <div class="right floated author">
+
+            </div>
+        </div>
+    </div>
+    <div class="ui raised link card">
+        <div class="content">
+            <div style="display: inline" class="header">Temperature</div>
+            <i class=" icons">
+                <i style="display: inline" class="thermometer blue big empty icon"></i>
+                <i class="top right corner blue circle outline icon"></i>
+            </i>
+            <div class="meta">
+                <span class="category">${celsius}C</span>
+                <span class="category">${fahrenhite}F</span>
+                <span class="category">Min: ${min}</span>
+                <span class="category">Max: ${max}</span>
+            </div>
+            <div class="description">
+                <p></p>
+            </div>
+        </div>
+        <div class="extra content">
+            <div class="right floated ">
+                <i class="${tendTemperature}"></i>
+            </div>
+        </div>
+    </div>
+    <div class="ui raised link card">
+        <div class="content">
+            <div style="display: inline" class="header">Wind</div>
+            <i style="display: inline"  class="leaf big green icon"></i>
+            <div class="meta">
+                <span class="category">${beaufort}</span>
+                <span class="category">${beaufrotText}</span>
+                <span class="category">${windChill}</span>
+                <span class="category">${windDirection}</span>
+            </div>
+            <div class="description">
+                <p></p>
+            </div>
+        </div>
+        <div class="extra content">
+            <div class="right floated ">
+                <i class="${tendWind}"></i>
+            </div>
+        </div>
+    </div>
+    <div class="ui raised link card">
+        <div class="content">
+            <div style="display: inline" class="header">Pressure</div>
+            <i style="display: inline" class="crosshairs orange big icon"></i>
+            <div class="meta">
+                <span class="category">${pressure}hpa</span>
+                <span class="category">Min: ${minPressure}</span>
+                <span class="category">Max: ${maxPressure}</span>
+
+            </div>
+            <div class="description">
+                <p></p>
+            </div>
+        </div>
+        <div class="extra content">
+            <div class="right floated ">
+                <i class="${tendPressure}"></i>
+            </div>
+        </div>
+    </div>
+
+</div>
+#{list items:readings, as:'reading'}
+
+
+
+<table class="ui fixed table">
+    <thead>
+    <tr>
+        <th>Date</th>
+        <th>Code</th>
+        <th>Temp</th>
+        <th>Wind Speed</th>
+        <th>Wind Direction</th>
+        <th>Pressure</th>
+        <th>Delete</th>
+
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>
+            ${reading.date}
+        </td>
+        <td>
+            ${reading.code}
+        </td>
+        <td>
+            ${reading.temperature}
+        </td>
+        <td>
+            ${reading.windSpeed}
+        </td>
+        <td>
+            ${reading.windDirection}
+        </td>
+        <td>
+            ${reading.pressure}
+        </td>
+        <td>
+            <a href="/stations/${station.id}/deletereading/${reading.id}"><i class="trash alternate red icon"></i></a>
+        </td>
+    </tbody>
+</table>
+#{/list}
+
+#{ addReadingForm station:station /}
